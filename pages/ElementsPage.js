@@ -1,3 +1,4 @@
+const { expect } = require('@playwright/test');
 const { BasePage } = require('./BasePage');
 
 class ElementsPage extends BasePage {
@@ -86,9 +87,15 @@ class ElementsPage extends BasePage {
   }
 
   async expandAll() {
-    const closedSwitcher = this.page.locator('.rc-tree-switcher_close');
-    while ((await closedSwitcher.count()) > 0) {
-      await closedSwitcher.first().click();
+    const closed = this.page.locator('.rc-tree-switcher_close');
+    const allNodes = this.page.locator('.rc-tree-treenode');
+    for (let i = 0; i < 15; i++) {
+      if ((await closed.count()) === 0) return;
+      const totalBefore = await allNodes.count();
+      await closed.first().click();
+      await expect
+        .poll(async () => allNodes.count(), { timeout: 2000 })
+        .toBeGreaterThan(totalBefore);
     }
   }
 
@@ -121,7 +128,7 @@ class ElementsPage extends BasePage {
   }
 
   async addRecord({ firstName, lastName, email, age, salary, department }) {
-    await this.webTablesAddBtn.click();
+    await this.safeClick(this.webTablesAddBtn);
     await this.webTablesFirstName.fill(firstName);
     await this.webTablesLastName.fill(lastName);
     await this.webTablesEmail.fill(email);
@@ -141,14 +148,17 @@ class ElementsPage extends BasePage {
   }
 
   async doDoubleClick() {
+    await this.scrollIntoView(this.doubleClickBtn);
     await this.doubleClickBtn.dblclick();
   }
 
   async doRightClick() {
+    await this.scrollIntoView(this.rightClickBtn);
     await this.rightClickBtn.click({ button: 'right' });
   }
 
   async doDynamicClick() {
+    await this.scrollIntoView(this.dynamicClickBtn);
     await this.dynamicClickBtn.click();
   }
 
