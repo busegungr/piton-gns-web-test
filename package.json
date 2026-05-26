@@ -1,0 +1,38 @@
+{
+  "name": "piton-gns-web-test",
+  "version": "1.0.0",
+  "description": "Piton & GNS Web Test — DemoQA UI otomasyonu (Playwright + JavaScript, POM) ve kurumsal sitelerde keşif testleri.",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:elements": "playwright test tests/elements",
+    "test:forms": "playwright test tests/forms",
+    "test:widgets": "playwright test tests/widgets",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:chromium": "playwright test --project=chromium",
+    "report": "playwright show-report reports/html",
+    "codegen": "playwright codegen https://demoqa.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/busegungr/piton-gns-web-test.git"
+  },
+  "keywords": [
+    "playwright",
+    "javascript",
+    "pom",
+    "demoqa",
+    "piton"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/busegungr/piton-gns-web-test/issues"
+  },
+  "homepage": "https://github.com/busegungr/piton-gns-web-test#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0"
+  }
+}

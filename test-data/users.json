@@ -1,0 +1,20 @@
+{
+  "validUser": {
+    "firstName": "Ali",
+    "lastName": "Yılmaz",
+    "email": "ali.yilmaz@example.com",
+    "mobile": "5551234567",
+    "currentAddress": "Eskişehir, Türkiye",
+    "permanentAddress": "Ankara, Türkiye"
+  },
+  "webTablesUser": {
+    "firstName": "Buse",
+    "lastName": "Güngör",
+    "email": "buse@example.com",
+    "age": "27",
+    "salary": "12000",
+    "department": "QA"
+  },
+  "invalidEmail": "abc@",
+  "shortMobile": "12345"
+}
