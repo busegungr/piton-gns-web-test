@@ -13,7 +13,10 @@ PITON Technology aday case study — **DemoQA UI Otomasyonu** (Playwright + Java
 ### Bölüm B — Keşif Testi (Manuel)
 - **Hedefler:** https://www.gnsmetal.com/home, https://piton.com.tr/
 - **Yaklaşım:** Exploratory testing → UX, navigasyon, broken link, form validasyon, responsive, performans
-- **Çıktı:** `docs/exploratory-report-template.md` → Excel/Word'e aktarılacak
+- **Çıktı:** `docs/` altında 3 formatta keşif test raporu
+  - `docs/PTN-GNS-Manuel-KeşifTestRaporu.docx`
+  - `docs/PTN-GNS-Manuel-KeşifTestRaporu.xlsx`
+  - `docs/PTN-GNS-Manuel-KeşifTestRaporu.pdf`
 
 ## Kurulum
 
@@ -53,9 +56,9 @@ piton-gns-web-test/
 ├── utils/testUtils.js           # removeAds, uniqueEmail, randomDigits, pixelBuffer
 ├── test-data/users.json         # Deterministic test verisi
 ├── docs/
-│   ├── test-analiz-dokumani.xlsx   # PDF zorunlu: 6 kolonlu Excel test analizi
-│   ├── test-cases.md               # 25 senaryonun markdown kaynağı
-│   └── exploratory-report-template.md  # Bölüm B keşif raporu şablonu
+│   ├── test-analiz-dokumani.xlsx       # PDF zorunlu: 6 kolonlu Excel test analizi
+│   ├── test-cases.md                   # 25 senaryonun markdown kaynağı
+│   └── PTN-GNS-Manuel-KeşifTestRaporu.{docx,xlsx,pdf}  # Bölüm B keşif raporu çıktıları
 ├── reports/                     # HTML & JSON çıktılar (gitignore)
 ├── .github/workflows/playwright.yml  # CI/CD (bonus)
 └── playwright.config.js
@@ -84,7 +87,7 @@ await formsPage.submit();
 
 ## CI/CD
 
-`.github/workflows/playwright.yml` — her push ve PR'da otomatik çalışarak **chromium + firefox** matrisi ile HTML raporunu 14 gün boyunca artifact olarak saklar.
+`.github/workflows/playwright.yml` — her push ve PR'da otomatik çalışarak **chromium + firefox + webkit** matrisi ile HTML raporunu 14 gün boyunca, hata olursa trace'leri de artifact olarak saklar.
 
 ## Senaryo Özeti
 
