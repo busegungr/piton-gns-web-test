@@ -99,3 +99,10 @@ await formsPage.submit();
 | **Toplam** | **17** | **8** | **25** |
 
 Tüm senaryolar `docs/test-cases.md` ve `docs/test-analiz-dokumani.xlsx` içinde adım adım dokümante.
+
+## Video
+
+Proje tanıtım videosu:
+
+- **Link 1:** https://www.loom.com/share/2f9f97c9153940be8fb68bfa9ad7f95b
+- **Link 2:** https://www.loom.com/share/885a1321de424ced931f826ad1aaf9d1
