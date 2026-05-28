@@ -6,7 +6,9 @@ class BasePage {
   }
 
   async goto(path) {
-    await this.page.goto(path);
+    // DemoQA'nın 'load' olayı yavaş reklam/analytics isteklerini bekler; DOM hazır
+    // olunca etkileşim için yeterli ve auto-waiting gerisini halleder.
+    await this.page.goto(path, { waitUntil: 'domcontentloaded' });
     await this.removeAds();
   }
 

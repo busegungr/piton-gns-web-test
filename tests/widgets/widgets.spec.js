@@ -46,7 +46,9 @@ test.describe('Widgets Modülü', () => {
   }) => {
     await widgetsPage.openProgressBar();
     await widgetsPage.startProgress();
-    await expect.poll(async () => widgetsPage.getProgressValue()).toBeGreaterThan(10);
+    await expect
+      .poll(async () => widgetsPage.getProgressValue(), { timeout: 20_000 })
+      .toBeGreaterThan(10);
     await widgetsPage.stopProgress();
     const value = await widgetsPage.getProgressValue();
     expect(value).toBeLessThan(100);

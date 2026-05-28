@@ -28,7 +28,7 @@ npx playwright install --with-deps
 ## Çalıştırma
 
 ```bash
-npm test                  # tüm testler (chromium + firefox + webkit)
+npm test                  # tüm testler (chromium + firefox)
 npm run test:chromium     # sadece chromium
 npm run test:elements     # sadece Elements modülü
 npm run test:forms        # sadece Forms modülü
@@ -87,7 +87,7 @@ await formsPage.submit();
 
 ## CI/CD
 
-`.github/workflows/playwright.yml` — her push ve PR'da otomatik çalışarak **chromium + firefox + webkit** matrisi ile HTML raporunu 14 gün boyunca, hata olursa trace'leri de artifact olarak saklar.
+`.github/workflows/playwright.yml` — her push ve PR'da otomatik çalışarak **chromium + firefox** matrisi ile HTML raporunu 14 gün boyunca, hata olursa trace'leri de artifact olarak saklar.
 
 ## Senaryo Özeti
 

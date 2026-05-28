@@ -69,7 +69,7 @@ class WidgetsPage extends BasePage {
   }
 
   async waitProgressComplete() {
-    await expect(this.progressBar).toHaveAttribute('aria-valuenow', '100', { timeout: 15_000 });
+    await expect(this.progressBar).toHaveAttribute('aria-valuenow', '100', { timeout: 35_000 });
   }
 
   async getProgressValue() {

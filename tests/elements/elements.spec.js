@@ -121,10 +121,15 @@ test.describe('Elements Modülü', () => {
   // TC-ELE-P-08
   test('TC-ELE-P-08: Dynamic Properties — enable-after butonu 5sn sonra etkin olur', async ({
     elementsPage,
+    page,
   }) => {
+    // Saati kontrol ederek 5sn'lik sayacı deterministik test ediyoruz; aksi halde
+    // CPU yükü altında assertion 5sn penceresini kaçırıp flaky olur.
+    await page.clock.install();
     await elementsPage.openDynamicProperties();
     await expect(elementsPage.enableAfterBtn).toBeDisabled();
-    await expect(elementsPage.enableAfterBtn).toBeEnabled({ timeout: 7_000 });
+    await page.clock.fastForward(5000);
+    await expect(elementsPage.enableAfterBtn).toBeEnabled();
   });
 
   // TC-ELE-N-09
